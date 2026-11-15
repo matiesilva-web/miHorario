@@ -36,10 +36,8 @@ except json.JSONDecodeError as exc:
 
 # Inicializar Firebase Admin (una sola vez)
 if not firebase_admin._apps:
-    if "private_key" in firebase_cred_dict:
-    firebase_cred_dict["private_key"] = firebase_cred_dict["private_key"].replace("\\n", "\n")
-    cred = credentials.Certificate(firebase_cred_dict)
-    firebase_admin.initialize_app(cred)
+      cred = credentials.Certificate(firebase_cred_dict)
+      firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
